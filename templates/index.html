@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restful-API</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        .container {
+            text-align: center;
+            padding-top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<h2>Enter a name to search for</h2>
+           <div id="custom-search-input">
+               <div class="input-group col-md-12">
+                   <form method="post" action="{{ url_for('home') }}">
+                   <input type="text" class="  search-query form-control" placeholder="Search the Data Base..."  name="name"/>
+                   <span class="input-group-btn">
+                       <button class="btn btn-danger" type="submit">
+                           <span class=" glyphicon glyphicon-search"></span>
+                       </button>
+                   </span>
+                   </form>
+               </div>
+           </div>
+	</div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <br>
+            <h1 style="color: red;">{{ message }}</h1>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+
+
+
+</body>
+</html>
